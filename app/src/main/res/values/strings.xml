@@ -1,0 +1,80 @@
+<resources>
+    <string name="Titel" translatable="false">Mona Lisa</string>
+    <string name="artiest" translatable="false">Leonardo Da Vinci</string>
+    <string name="dagen_bieding" translatable="false">3:12:53:12</string>
+    <string name="huidige_bod" translatable="false">€120000.56</string>
+    <string name="leonadro_de_vinci" translatable="false">Leonadro De Vinci</string>
+    <string name="foto_example" translatable="false">foto mona</string>
+    <string name="the_last_supper" translatable="false">The Last Supper</string>
+    <string name="mona_lisa" translatable="false">Mona Lisa</string>
+    <string name="ginevra_de_benci" translatable="false">Ginevra de’ Benci</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+
+    <string name="app_name" translatable="false">The imperfectionist</string>
+    <string name="DummyOmschrijving" translatable="false">Mona Lisa (also known as La Gioconda or La Joconde) is a 16th-century portrait painted in oil by Leonardo da Vinci during the Renaissance in Florence, Italy. Many people think Mona Lisa\'s smile is mysterious.[1] It is so often studied, recognized, and copied that it is the most famous painting .[2][3][4] The Louvre says that about 80 percent of its visitors come to see the painting of Mona Lisa.[4]</string>
+
+    <string name="logo" translatable="false">logo</string>
+
+    <!-- fragment_home -->
+    <string name="Welkom">Welcome in the gallery</string>
+    <string name="populairewerken">Popular works</string>
+    <string name="nieuwewerken">New works</string>
+    <string name="populaireartiesten">Popular Artists</string>
+    <!--  einde -->
+
+    <!-- fragment_kunst_detail -->
+    <string name="Bieden">Bid</string>
+    <!-- fragment_kunst_detail einde -->
+
+    <!-- fragment_kunstenaar -->
+    <string name="kunstenaar">artist</string>
+    <string name="eerste_kunstwerk">first artwork artist</string>
+    <string name="tweede_kunstwerk">second artwork artist</string>
+    <string name="derde_kunstwerk">third artwork artist</string>
+    <!-- fragment_kunstenaar -->
+
+    <!-- fragment_kunst_kopen -->
+    <string name="Kopen">Buy</string>
+
+    <!-- fragment_kunst_kopen -->
+
+
+    <!-- Taal menu menu.xml -->
+    <string name="nederlands">Dutch</string>
+    <string name="engels">English</string>
+    <string name="taalveranderdnederlands">Language changed to Dutch</string>
+    <string name="taalveranderdengels">Language changed to English</string>
+    <!-- fragment_kunstenaar -->
+
+    <!-- bottom_navigation_menu -->
+    <string name="vertalingArtiesten">Artists</string>
+    <string name="home" translatable="false">Home</string>
+    <string name="settings">Settings</string>
+
+    <!-- fragment_login -->
+    <string name="inloggen">Login</string>
+    <string name="email" translatable="false">Email</string>
+    <string name="password">Password</string>
+
+
+    <!-- fragment_register -->
+    <string name="register">Register</string>
+    <string name="name">First Name</string>
+    <string name="lastname">Last Name</string>
+    <string name="repeatPassword">Repeat Password</string>
+    <string name="forgot_password">Forgot Password</string>
+
+    <!-- popup_bieden -->
+    <string name="highest_bid">Highest Bid</string>
+    <string name="cancel_bid">Cancel Bid</string>
+    <string name="make_bid">Make Bid</string>
+
+    <!-- popup_bieden -->
+    <string name="price">Price</string>
+    <string name="buy">Buy</string>
+    <string name="cancel">Cancel</string>
+    <string name="Kunst">Gallery</string>
+    <string name="start">start</string>
+    <string name="offer">Offer</string>
+
+</resources>

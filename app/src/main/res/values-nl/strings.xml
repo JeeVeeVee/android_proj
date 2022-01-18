@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- fragment_home -->
+    <string name="Welkom">Welkom in de gallerij</string>
+    <string name="populairewerken">Populaire kunstwerken</string>
+    <string name="nieuwewerken">Nieuwe kunstwerken</string>
+    <string name="populaireartiesten">Populaire artiesten</string>
+    <!--  einde -->
+
+    <!-- fragment_kunst_detail -->
+    <string name="Bieden">Bieden</string>
+    <!-- fragment_kunst_detail einde -->
+
+    <!-- fragment_kunstenaar -->
+    <string name="eerste_kunstwerk">eerste kunstwerk artiest</string>
+    <string name="tweede_kunstwerk">tweede kunstwerk artiest</string>
+    <string name="derde_kunstwerk">derde kunstwerk artiest</string>
+    <string name="kunstenaar">artiest</string>
+    <!-- fragment_kunstenaar einde -->
+
+    <!-- fragment_kunst_kopen -->
+    <string name="Kopen">Koop</string>
+
+    <!-- fragment_kunst_kopen -->
+
+    <!-- Taal menu menu.xml -->
+    <string name="nederlands">Nederlands</string>
+    <string name="engels">Engels</string>
+    <string name="taalveranderdnederlands">Taal veranderd naar Nederlands</string>
+    <string name="taalveranderdengels">Taal veranderd naar Engels</string>
+    <!-- fragment_kunstenaar -->
+
+    <!-- bottom_navigation_menu -->
+    <string name="vertalingArtiesten">Artiesten</string>
+    <string name="settings">Instellingen</string>
+
+    <!-- fragment_login -->
+    <string name="inloggen">Login</string>
+    <string name="password">Wachtwoord</string>
+
+    <!-- fragment_register -->
+    <string name="register">Registreren</string>
+    <string name="name">Voornaam</string>
+    <string name="lastname">Achternaam</string>
+    <string name="repeatPassword">Herhaal wachtwoord</string>
+    <string name="forgot_password">Wachtwoord vergeten</string>
+
+    <!-- popup_bieden -->
+    <string name="highest_bid">Hoogste Bod</string>
+    <string name="cancel_bid">Anuleer Bod</string>
+    <string name="make_bid">Plaats Bod</string>
+
+    <!-- popup_bieden -->
+    <string name="price">Prijs</string>
+    <string name="buy">Kopen</string>
+    <string name="cancel">Annuleren</string>
+    <string name="Kunst">Gallerij</string>
+</resources>
