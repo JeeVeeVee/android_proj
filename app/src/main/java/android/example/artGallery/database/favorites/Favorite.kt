@@ -9,4 +9,4 @@ import androidx.room.PrimaryKey
 data class Favorite(
     @PrimaryKey
     @ColumnInfo(name = "artwork_id")
-    val artworkId: Long = 0L){}
+    var artworkId: Long = 0L){}

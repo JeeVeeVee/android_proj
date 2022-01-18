@@ -6,7 +6,7 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 @Entity(
-    tableName = "artwork_pictures",
+    tableName = "artwork_pictures1",
     foreignKeys = [
         ForeignKey(
             entity = Artwork::class,
@@ -17,9 +17,9 @@ import androidx.room.PrimaryKey
 )
 data class ArtworkPicture(
     @PrimaryKey
-    val blopstring: String = "",
+    var blopstring: String = "",
 
     @ColumnInfo(name = "artwork_id")
-    val artworkId: Long = 0L,
+    var artworkId: Long = 0L
 
 )

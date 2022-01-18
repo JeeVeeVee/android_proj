@@ -39,21 +39,6 @@ class AuctionViewModel(val database: ArtGalleryDAO, val id: Long) : ViewModel() 
     val pictures: LiveData<List<ArtworkPicture>> get() = _pictures
 
     init{
-        val artwork = database.getArtWorkByKey(id)
-        val auction = database.getAuctionByArtworkKey(id)
-        val pictures = database.getAllPicturesFromArtworkKey(id)
-        val artist = database.getArtistByKey(artwork.artistId)
-        val offers = database.getAllOffersFromAuctionKey(auction.auctionId)
 
-        _title.value = artwork.title
-        _description.value = artwork.description
-        _artist.value = artist.firstName + " " + artist.secondName
-        _startPrice.value = auction.startPrice
-        _endDate.value = auction.endDate
-        _offers.value = offers
-        _measurements.value = auction.measurements
-        _material.value = artwork.material
-        _weight.value = auction.weight
-        _pictures.value = pictures
     }
 }

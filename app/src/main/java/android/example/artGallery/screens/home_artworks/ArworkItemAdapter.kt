@@ -1,6 +1,6 @@
 package android.example.artGallery.screens
 
-import android.example.artGallery.ImageItemViewHolder
+import android.example.artGallery.screens.home_artworks.ImageItemViewHolder
 import android.example.artGallery.R
 import android.example.artGallery.database.Artwork
 import android.view.LayoutInflater

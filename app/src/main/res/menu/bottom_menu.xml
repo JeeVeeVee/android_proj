@@ -12,7 +12,7 @@
         android:title="@string/home" />
 
     <item
-        android:id="@+id/settingsFragment"
-        android:icon="@drawable/ic_settings"
-        android:title="@string/settings" />
+        android:id="@+id/favoritesFragment"
+        android:icon="@drawable/favoriet_icon"
+        android:title="@string/favorieten" />
 </menu>

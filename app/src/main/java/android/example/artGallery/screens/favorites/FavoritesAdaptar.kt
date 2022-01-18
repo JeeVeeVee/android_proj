@@ -1,21 +1,26 @@
 package android.example.artGallery.screens.favorites
 
-import android.example.artGallery.databinding.ArtworkItemViewBinding
-import android.example.artGallery.network.api_models.ArtworkApi
-import android.example.artGallery.screens.home_artworks.ArtworkImageViewModel
+import android.content.Context
+import android.example.artGallery.database.ArtworkPicture
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
-class FavoritesAdaptar(val clickListener: ArtworksListener, val viewModel: ArtworkImageViewModel): RecyclerView.Adapter<FavoritesAdaptar.CustomViewHolder>() {
+import android.example.artGallery.databinding.ArtworkItemViewBinding
+import android.example.artGallery.network.api_models.ArtworkApi
+import android.example.artGallery.network.api_models.ArtworksApi
+
+
+class FavoritesAdaptar(val clickListener: ArtworksListener, val viewModel: FavoriteImageViewModel) :
+    RecyclerView.Adapter<FavoritesAdaptar.CustomViewHolder>() {
 
     var artworks = viewModel.apiResponse.value?.artworks
 
     override fun getItemCount(): Int {
         if (artworks != null) {
             return artworks!!.size
-        }else{
+        } else {
             return 0
         }
     }
@@ -31,13 +36,12 @@ class FavoritesAdaptar(val clickListener: ArtworksListener, val viewModel: Artwo
         }
     }
 
+    class CustomViewHolder(val binding: ArtworkItemViewBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-
-    class CustomViewHolder(val binding: ArtworkItemViewBinding) : RecyclerView.ViewHolder(binding.root) {
-
-        fun bind(clickListener: ArtworksListener, item: ArtworkApi){
+        fun bind(clickListener: ArtworksListener, item: ArtworkApi) {
             binding.artwork = item
-            binding.clickListener = clickListener
+            //binding.clickListener = clickListener
             Picasso.get().load(item.pictures[0].picture).into(binding.artworkImg)
         }
 
@@ -52,7 +56,7 @@ class FavoritesAdaptar(val clickListener: ArtworksListener, val viewModel: Artwo
 
     }
 
-    class ArtworksListener(val clickListener: (artworkApi: ArtworkApi) -> Unit){
+    class ArtworksListener(val clickListener: (artworkApi: ArtworkApi) -> Unit) {
         fun onClick(artwork: ArtworkApi) = clickListener(artwork)
     }
 

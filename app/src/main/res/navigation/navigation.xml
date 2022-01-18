@@ -48,6 +48,9 @@
         <action
             android:id="@+id/action_homeKunstFragment_to_artworkFragment"
             app:destination="@id/artworkFragment" />
+        <action
+            android:id="@+id/action_homeKunstFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment" />
     </fragment>
     <fragment
         android:id="@+id/articleFragment"
@@ -100,4 +103,8 @@
             android:id="@+id/action_kopenPopupFragment_to_articleFragment"
             app:destination="@id/articleFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="android.example.artGallery.screens.favorites.FavoritesFragment"
+        android:label="FavoritesFragment" />
 </navigation>

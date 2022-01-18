@@ -24,7 +24,7 @@ import retrofit2.await
 enum class HooopApiStatus { LOADING, ERROR, DONE }
 
 
-class FavoriteViewModel(val database: ArtGalleryDAO, application: Application) : AndroidViewModel(application) {
+class FavoriteImageViewModel(val database: ArtGalleryDAO, application: Application) : AndroidViewModel(application) {
 
     private var _apiResponse = MutableLiveData<ArtworksApi>()
     val apiResponse: LiveData<ArtworksApi>
@@ -44,11 +44,6 @@ class FavoriteViewModel(val database: ArtGalleryDAO, application: Application) :
 
     fun onArtworkDetailNavigated(){
         _navigateToArtworkDetail.value = null
-    }
-
-    fun getArtworkTypeById(id: Long): String {
-        val artwork: Artwork = database.getArtWorkByKey(id)
-        return artwork.type
     }
 
     init {

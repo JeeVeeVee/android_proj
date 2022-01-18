@@ -33,8 +33,8 @@ class MainActivity : AppCompatActivity() {
 
         bottomNavigationView.setupWithNavController(navController)
 
-        val appBarConfiguration = AppBarConfiguration(setOf(R.id.homeKunstFragment, R.id.artistListFragment, R.id.settingsFragment))
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        val appBarConfiguration = AppBarConfiguration(setOf(R.id.homeKunstFragment, R.id.artistListFragment, R.id.favoritesFragment))
+       setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
 

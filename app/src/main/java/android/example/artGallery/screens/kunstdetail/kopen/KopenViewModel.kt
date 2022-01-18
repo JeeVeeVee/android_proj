@@ -30,15 +30,7 @@ class KopenViewModel(val database: ArtGalleryDAO, val id: Long) : ViewModel() {
 
         uiScope.launch {
             withContext(Dispatchers.IO) {
-                val artwork = database.getArtWorkByKey(id)
-                val article = database.getArticleByArtworkKey(id)
-                val pictures = database.getAllPicturesFromArtworkKey(id)
-                val artist = database.getArtistByKey(artwork.artistId)
 
-                _title.value = artwork.title
-                _artist.value = artist.firstName + " " + artist.secondName
-                _price.value = article.price
-                _pictures.value = pictures
             }
         }
 

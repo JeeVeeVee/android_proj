@@ -1,4 +1,4 @@
-package android.example.artGallery
+package android.example.artGallery.screens.home_artworks
 
 import android.widget.ImageButton
 import androidx.recyclerview.widget.RecyclerView

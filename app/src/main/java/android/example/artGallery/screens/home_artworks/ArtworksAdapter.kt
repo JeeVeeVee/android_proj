@@ -1,4 +1,5 @@
 package android.example.artGallery.screens.home_artworks
+
 import android.content.Context
 import android.example.artGallery.database.ArtworkPicture
 import android.view.LayoutInflater
@@ -11,14 +12,15 @@ import android.example.artGallery.network.api_models.ArtworkApi
 import android.example.artGallery.network.api_models.ArtworksApi
 
 
-class ArtworksAdapter(val clickListener: ArtworksListener, val viewModel: ArtworkImageViewModel): RecyclerView.Adapter<ArtworksAdapter.CustomViewHolder>() {
+class ArtworksAdapter(val clickListener: ArtworksListener, val viewModel: ArtworkImageViewModel) :
+    RecyclerView.Adapter<ArtworksAdapter.CustomViewHolder>() {
 
     var artworks = viewModel.apiResponse.value?.artworks
 
     override fun getItemCount(): Int {
         if (artworks != null) {
             return artworks!!.size
-        }else{
+        } else {
             return 0
         }
     }
@@ -34,11 +36,10 @@ class ArtworksAdapter(val clickListener: ArtworksListener, val viewModel: Artwor
         }
     }
 
+    class CustomViewHolder(val binding: ArtworkItemViewBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-
-    class CustomViewHolder(val binding: ArtworkItemViewBinding) : RecyclerView.ViewHolder(binding.root) {
-
-        fun bind(clickListener: ArtworksListener, item: ArtworkApi){
+        fun bind(clickListener: ArtworksListener, item: ArtworkApi) {
             binding.artwork = item
             binding.clickListener = clickListener
             Picasso.get().load(item.pictures[0].picture).into(binding.artworkImg)
@@ -55,7 +56,7 @@ class ArtworksAdapter(val clickListener: ArtworksListener, val viewModel: Artwor
 
     }
 
-    class ArtworksListener(val clickListener: (artworkApi: ArtworkApi) -> Unit){
+    class ArtworksListener(val clickListener: (artworkApi: ArtworkApi) -> Unit) {
         fun onClick(artwork: ArtworkApi) = clickListener(artwork)
     }
 

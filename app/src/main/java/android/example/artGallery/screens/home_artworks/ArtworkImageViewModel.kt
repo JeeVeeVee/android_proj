@@ -46,10 +46,6 @@ class ArtworkImageViewModel(val database: ArtGalleryDAO, application: Applicatio
         _navigateToArtworkDetail.value = null
     }
 
-     fun getArtworkTypeById(id: Long): String {
-        val artwork: Artwork = database.getArtWorkByKey(id)
-        return artwork.type
-    }
 
     init {
 

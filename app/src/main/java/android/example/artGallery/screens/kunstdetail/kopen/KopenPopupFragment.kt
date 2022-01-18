@@ -40,7 +40,7 @@ class KopenPopupFragment : Fragment() {
         val viewModel : KopenViewModel by viewModels{viewModelFactory}
 
         binding.lifecycleOwner = this
-        binding.kopenViewModel = viewModel
+       // binding.kopenViewModel = viewModel
 
         viewModel.title.observe(this, {
                 newData -> binding.artworkName.text = newData.toString()

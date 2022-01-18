@@ -4,8 +4,8 @@
     
     <data>
         <variable
-            name="favoriteViewModel"
-            type="android.example.artGallery.screens.favorites.FavoriteViewModel" />
+            name="artworkViewModel"
+            type="android.example.artGallery.screens.home_artworks.ArtworkImageViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

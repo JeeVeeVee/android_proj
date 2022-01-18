@@ -31,16 +31,7 @@ class BiedenViewModel(val database: ArtGalleryDAO, val id: Long) : ViewModel() {
 
         uiScope.launch {
             withContext(Dispatchers.IO) {
-                val artwork = database.getArtWorkByKey(id)
-                val auction = database.getAuctionByArtworkKey(id)
-                val pictures = database.getAllPicturesFromArtworkKey(id)
-                val artist = database.getArtistByKey(artwork.artistId)
-                val offers = database.getAllOffersFromAuctionKey(auction.auctionId)
 
-                _title.value = artwork.title
-                _artist.value = artist.firstName + " " + artist.secondName
-                _offers.value = offers
-                _pictures.value = pictures
             }
         }
 
