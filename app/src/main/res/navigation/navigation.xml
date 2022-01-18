@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homeKunstFragment">
+
+    <fragment
+        android:id="@+id/kunstenaar"
+        android:name="android.example.artGallery.screens.kunstenaardetail.KunstenaarFragment"
+        android:label="Kunstenaar" >
+        <argument
+            android:name="ArtistId"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="android.example.artGallery.screens.login.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_homeKunstFragment"
+            app:destination="@id/homeKunstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="android.example.artGallery.screens.settings.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/artistListFragment"
+        android:name="android.example.artGallery.screens.home_artists.HomeArtistFragment"
+        android:label="@string/vertalingArtiesten">
+        <action
+            android:id="@+id/action_artistListFragment_to_kunstenaar"
+            app:destination="@id/kunstenaar"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeKunstFragment"
+        android:name="android.example.artGallery.screens.home_artworks.HomeKunstFragment"
+        android:label="@string/Kunst">
+        <action
+            android:id="@+id/action_homeKunstFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+        <action
+            android:id="@+id/action_homeKunstFragment_to_auctionFragment"
+            app:destination="@id/auctionFragment" />
+        <action
+            android:id="@+id/action_homeKunstFragment_to_artworkFragment"
+            app:destination="@id/artworkFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="android.example.artGallery.screens.kunstdetail.article.ArticleFragment"
+        android:label="ArticleFragment" >
+        <argument
+            android:name="ArticleId"
+            app:argType="android.example.artGallery.network.api_models.ArtworkApi" />
+        <action
+            android:id="@+id/action_articleFragment_to_kopenPopupFragment"
+            app:destination="@id/kopenPopupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/auctionFragment"
+        android:name="android.example.artGallery.screens.kunstdetail.auction.AuctionFragment"
+        android:label="AuctionFragment" >
+        <argument
+            android:name="AuctionId"
+            app:argType="android.example.artGallery.network.api_models.ArtworkApi" />
+        <action
+            android:id="@+id/action_auctionFragment_to_biedenPopupFragment"
+            app:destination="@id/biedenPopupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/artworkFragment"
+        android:name="android.example.artGallery.screens.kunstdetail.artwork.ArtworkFragment"
+        android:label="ArtworkFragment" >
+        <argument
+            android:name="ArtworkId"
+            app:argType="android.example.artGallery.network.api_models.ArtworkApi" />
+    </fragment>
+    <fragment
+        android:id="@+id/biedenPopupFragment"
+        android:name="android.example.artGallery.screens.kunstdetail.bieden.BiedenPopupFragment"
+        android:label="BiedenPopupFragment" >
+        <argument android:name="auctionId"
+            app:argType="android.example.artGallery.network.api_models.ArtworkApi" />
+        <action
+            android:id="@+id/action_biedenPopupFragment_to_auctionFragment"
+            app:destination="@id/auctionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/kopenPopupFragment"
+        android:name="android.example.artGallery.screens.kunstdetail.kopen.KopenPopupFragment"
+        android:label="KopenPopupFragment" >
+        <argument
+            android:name="articleId"
+            app:argType="android.example.artGallery.network.api_models.ArtworkApi" />
+        <action
+            android:id="@+id/action_kopenPopupFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
+</navigation>
