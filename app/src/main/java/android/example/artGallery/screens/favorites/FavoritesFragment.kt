@@ -64,21 +64,21 @@ class FavoritesFragment : Fragment() {
 
                 if (artworkApi.type == "Article") {
                     this.findNavController().navigate(
-                        HomeKunstFragmentDirections.actionHomeKunstFragmentToArticleFragment(
+                        FavoritesFragmentDirections.actionFavoritesFragmentToArtworkFragment(
                             artworkApi
                         )
                     )
                     artworkImageViewModel.onArtworkDetailNavigated()
                 } else if (artworkApi.type == "Auction") {
                     this.findNavController().navigate(
-                        HomeKunstFragmentDirections.actionHomeKunstFragmentToAuctionFragment(
+                        FavoritesFragmentDirections.actionFavoritesFragmentToArtworkFragment(
                             artworkApi
                         )
                     )
                     artworkImageViewModel.onArtworkDetailNavigated()
                 } else {
                     this.findNavController().navigate(
-                        HomeKunstFragmentDirections.actionHomeKunstFragmentToArtworkFragment(
+                        FavoritesFragmentDirections.actionFavoritesFragmentToArtworkFragment(
                             artworkApi
                         )
                     )
