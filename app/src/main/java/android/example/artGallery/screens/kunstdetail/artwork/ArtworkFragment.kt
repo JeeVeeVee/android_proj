@@ -67,24 +67,25 @@ class ArtworkFragment : Fragment() {
             binding.artiest.text = artwork.artist.firstName + " " + artwork.artist.lastName
         })
 
-
-
-
-        binding.buttonFavorite.setOnClickListener {
-            if (viewModel.isFavorite.value == true) {
-                viewModel.removeFav(id)
-                binding.buttonFavorite.setText("favoriet verwijderen")
+        viewModel.isFavorite.observe(this, {
+            if (it != null) {
+                if (it) {
+                    binding.buttonFavorite.setText("favoriet verwijderen")
+                    binding.buttonFavorite.setOnClickListener{
+                        viewModel.removeFav(args.artworkId.id.toInt())
+                    }
+                } else {
+                    binding.buttonFavorite.setText("favoriet toevoegen")
+                    binding.buttonFavorite.setOnClickListener{
+                        viewModel.addFav(args.artworkId.id.toInt())
+                    }
+                }
             } else {
-                viewModel.addFav(id)
-                binding.buttonFavorite.setText("favoriet toevoegen")
+                binding.buttonFavorite.setText("loading")
             }
-        }
 
-        if (viewModel.isFavorite.value == true) {
-            binding.buttonFavorite.setText("favoriet verwijderen")
-        } else {
-            binding.buttonFavorite.setText("favoriet toevoegen")
-        }
+        })
+
         return binding.root
     }
 

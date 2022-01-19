@@ -97,7 +97,6 @@
                 android:id="@+id/button_favorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="add favorite"
                 app:layout_constraintBottom_toTopOf="@+id/titel_werk"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.95"

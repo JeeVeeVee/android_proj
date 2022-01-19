@@ -74,7 +74,7 @@ class FavoriteImageViewModel(val database: ArtGalleryDAO, application: Applicati
                     result!!.forEach { println(it.title) }
                 }
             }
-            //_favorites.value = result
+            _favorites.value = result
         }
     }
 
