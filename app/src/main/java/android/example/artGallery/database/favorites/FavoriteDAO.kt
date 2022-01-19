@@ -34,8 +34,8 @@ interface FavoriteDAO {
     fun getAllFavorites(): List<Favorite>
 
 
-    @Query("SELECT exists (select 1 from favorites_table where artwork_id =:id)")
-    fun exists(id : Long) : Boolean
+    @Query("SELECT exists (select 1 from favorites_table where title =:title)")
+    fun exists(title : String) : Boolean
 
 
 }

@@ -25,17 +25,21 @@ import retrofit2.await
 enum class HooopApiStatus { LOADING, ERROR, DONE }
 
 
-class FavoriteImageViewModel(val database: ArtGalleryDAO, application: Application, favoriteDAO: FavoriteDAO) : AndroidViewModel(application) {
+class FavoriteImageViewModel(
+    val database: ArtGalleryDAO,
+    application: Application,
+    favoriteDAO: FavoriteDAO
+) : AndroidViewModel(application) {
 
     private val viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     private var _apiResponse = MutableLiveData<ArtworksApi>()
     val apiResponse: LiveData<ArtworksApi>
-        get()= _apiResponse
+        get() = _apiResponse
 
     private var _favorites = MutableLiveData<List<ArtworkApi>>()
-    val favorites :LiveData<List<ArtworkApi>>
+    val favorites: LiveData<List<ArtworkApi>>
         get() = _favorites
 
     private val _status = MutableLiveData<HooopApiStatus>()
@@ -46,39 +50,27 @@ class FavoriteImageViewModel(val database: ArtGalleryDAO, application: Applicati
     val navigateToArtworkDetail
         get() = _navigateToArtworkDetail
 
-    fun onArtworkClicked(artworksApi: ArtworkApi){
+    fun onArtworkClicked(artworksApi: ArtworkApi) {
         _navigateToArtworkDetail.value = artworksApi
     }
 
-    fun onArtworkDetailNavigated(){
+    fun onArtworkDetailNavigated() {
         _navigateToArtworkDetail.value = null
     }
 
 
     init {
 
-        viewModelScope.launch {
-            getArtworksFromAPI()
-            _apiResponse.value!!.artworks.forEach{
-                println(it)
-            }
+        uiScope.launch {
+            getArtworksFromAPI(favoriteDAO)
 
         }
         uiScope.launch {
-            var result: List<ArtworkApi>? = null
-            withContext(Dispatchers.IO){
-                println("get here")
-                if(apiResponse.value != null){
-                    result = _apiResponse.value!!.artworks.filter { favoriteDAO.exists(it.id) }
-                    println("filtered")
-                    result!!.forEach { println(it.title) }
-                }
-            }
-            _favorites.value = result
+
         }
     }
 
-    private suspend fun getArtworksFromAPI() {
+    private suspend fun getArtworksFromAPI(favoriteDAO: FavoriteDAO) {
         _status.value = HooopApiStatus.LOADING
         val getArtworksDeferred = HooopApi.retrofitService.getArtWorks()
 
@@ -91,6 +83,20 @@ class FavoriteImageViewModel(val database: ArtGalleryDAO, application: Applicati
         } catch (e: Exception) {
             _status.value = HooopApiStatus.ERROR
         }
+        updateFavs(favoriteDAO)
+    }
+
+    private  suspend fun updateFavs(favoriteDAO: FavoriteDAO){
+        var result: List<ArtworkApi>? = null
+        withContext(Dispatchers.IO) {
+            println("get here")
+            result = _apiResponse.value!!.artworks.filter { favoriteDAO.exists(it.title) }
+            println("filtered")
+            result!!.forEach { println(it.title) }
+
+        }
+        _favorites.value = result
+        favorites.value?.forEach { println(it) }
     }
 
 }

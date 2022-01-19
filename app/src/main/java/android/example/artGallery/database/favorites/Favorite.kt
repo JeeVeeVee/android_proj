@@ -8,5 +8,5 @@ import androidx.room.PrimaryKey
     tableName = "favorites_table")
 data class Favorite(
     @PrimaryKey
-    @ColumnInfo(name = "artwork_id")
-    var artworkId: Long = 0L){}
+    @ColumnInfo(name = "title")
+    var title: String = ""){}

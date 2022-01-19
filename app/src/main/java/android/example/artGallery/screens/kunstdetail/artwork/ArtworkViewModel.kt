@@ -63,7 +63,7 @@ class ArtworkViewModel(
                 artworkApi.uploadDate,
                 artworkApi.materiaal
             )
-           getIsFavoriteFromDatabase(id)
+           getIsFavoriteFromDatabase()
         }
 
     }
@@ -80,12 +80,12 @@ class ArtworkViewModel(
         }
     }
 
-    private suspend fun getIsFavoriteFromDatabase(id:Long){
+    private suspend fun getIsFavoriteFromDatabase(){
         uiScope.launch {
             var result: Boolean = false
             withContext(Dispatchers.IO){
                 if (favDatabase != null) {
-                    result = favDatabase.exists(id)
+                    result = favDatabase.exists(artworkApi.title)
                 }
             }
             _isFavorite.value = result
@@ -106,12 +106,12 @@ class ArtworkViewModel(
         }
     }
 
-    fun removeFav(id: Int) {
+    fun removeFav() {
         uiScope.launch {
             withContext(Dispatchers.IO) {
-                val favorite = Favorite(artworkId = id.toLong())
+                val favorite = Favorite(title = artworkApi.title)
                 delete(favorite)
-                getIsFavoriteFromDatabase(id.toLong())
+                getIsFavoriteFromDatabase()
                 showAllFavs()
             }
         }
@@ -119,12 +119,12 @@ class ArtworkViewModel(
     }
 
 
-    fun addFav(id: Int) {
+    fun addFav() {
         uiScope.launch {
             withContext(Dispatchers.IO) {
-                val favorite = Favorite(artworkId = id.toLong())
+                val favorite = Favorite(artworkApi.title)
                 insert(favorite)
-                getIsFavoriteFromDatabase(id.toLong())
+                getIsFavoriteFromDatabase()
                 showAllFavs()
             }
         }

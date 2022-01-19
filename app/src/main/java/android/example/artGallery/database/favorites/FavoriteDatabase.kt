@@ -12,7 +12,7 @@ import androidx.room.TypeConverters
     entities = [
         Favorite::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 @TypeConverters(Converters::class)

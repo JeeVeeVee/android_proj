@@ -72,12 +72,12 @@ class ArtworkFragment : Fragment() {
                 if (it) {
                     binding.buttonFavorite.setText("favoriet verwijderen")
                     binding.buttonFavorite.setOnClickListener{
-                        viewModel.removeFav(args.artworkId.id.toInt())
+                        viewModel.removeFav()
                     }
                 } else {
                     binding.buttonFavorite.setText("favoriet toevoegen")
                     binding.buttonFavorite.setOnClickListener{
-                        viewModel.addFav(args.artworkId.id.toInt())
+                        viewModel.addFav()
                     }
                 }
             } else {
