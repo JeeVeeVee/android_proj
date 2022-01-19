@@ -1,6 +1,8 @@
 package android.example.artGallery.screens.favorites
 
+import android.example.artGallery.R
 import android.example.artGallery.database.ArtGalleryDatabase
+import android.example.artGallery.database.favorites.FavoriteDatabase
 import android.example.artGallery.databinding.FragmentFavoritesBinding
 import android.example.artGallery.databinding.FragmentKunstHomeBinding
 import android.example.artGallery.screens.home_artworks.ArtworkImageViewModel
@@ -28,13 +30,14 @@ class FavoritesFragment : Fragment() {
     ): View? {
 
         val binding: FragmentFavoritesBinding = DataBindingUtil.inflate(
-            inflater, android.example.artGallery.R.layout.fragment_favorites, container, false
+            inflater, R.layout.fragment_favorites, container, false
         )
 
 
         val application = requireNotNull(this.activity).application
         val dataSource = ArtGalleryDatabase.getInstance(application).artGalleryDAO
-        val viewModelFactory = FavoriteImageViewModelFactory(dataSource, application)
+        val favDataSource = FavoriteDatabase.getInstance(application).favoriteDAO
+        val viewModelFactory = FavoriteImageViewModelFactory(dataSource, application, favDataSource)
 
         val artworkImageViewModel = ViewModelProvider(
             this, viewModelFactory
@@ -85,24 +88,24 @@ class FavoritesFragment : Fragment() {
         })
 
 
-        val adapter = FavoritesAdaptar(FavoritesAdaptar.ArtworksListener
+        val adapter = FavoritesAdaptar(ArtworksAdapter.ArtworksListener
         { artworkApi ->
             artworkImageViewModel.onArtworkClicked(artworkApi)
         }, artworkImageViewModel
         )
 
-        binding.artworksList.adapter = adapter
+        binding.favoritesList.adapter = adapter
 
-        artworkImageViewModel.apiResponse.observe(viewLifecycleOwner, { x ->
+        artworkImageViewModel.favorites.observe(viewLifecycleOwner, { x ->
             x?.let {
-                adapter.artworks = x.artworks
+                adapter.artworks = x
                 adapter.notifyDataSetChanged()
             }
         }
         )
 
-        val columns = resources.getInteger(android.example.artGallery.R.integer.gallery_columns)
-        binding.artworksList.layoutManager = GridLayoutManager(requireContext(), columns)
+        val columns = resources.getInteger(R.integer.gallery_columns)
+        binding.favoritesList.layoutManager = GridLayoutManager(requireContext(), columns)
 
 
 

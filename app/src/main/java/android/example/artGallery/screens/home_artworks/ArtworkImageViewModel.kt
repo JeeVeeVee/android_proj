@@ -55,7 +55,6 @@ class ArtworkImageViewModel(val database: ArtGalleryDAO, application: Applicatio
                 println(it)
             }
         }
-
     }
 
     private suspend fun getArtworksFromAPI() {

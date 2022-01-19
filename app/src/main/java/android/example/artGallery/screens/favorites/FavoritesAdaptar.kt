@@ -10,12 +10,13 @@ import com.squareup.picasso.Picasso
 import android.example.artGallery.databinding.ArtworkItemViewBinding
 import android.example.artGallery.network.api_models.ArtworkApi
 import android.example.artGallery.network.api_models.ArtworksApi
+import android.example.artGallery.screens.home_artworks.ArtworksAdapter
 
 
-class FavoritesAdaptar(val clickListener: ArtworksListener, val viewModel: FavoriteImageViewModel) :
+class FavoritesAdaptar(val clickListener: ArtworksAdapter.ArtworksListener, val viewModel: FavoriteImageViewModel) :
     RecyclerView.Adapter<FavoritesAdaptar.CustomViewHolder>() {
 
-    var artworks = viewModel.apiResponse.value?.artworks
+    var artworks = viewModel.favorites.value
 
     override fun getItemCount(): Int {
         if (artworks != null) {
@@ -39,9 +40,9 @@ class FavoritesAdaptar(val clickListener: ArtworksListener, val viewModel: Favor
     class CustomViewHolder(val binding: ArtworkItemViewBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(clickListener: ArtworksListener, item: ArtworkApi) {
+        fun bind(clickListener: ArtworksAdapter.ArtworksListener, item: ArtworkApi) {
             binding.artwork = item
-            //binding.clickListener = clickListener
+            binding.clickListener = clickListener
             Picasso.get().load(item.pictures[0].picture).into(binding.artworkImg)
         }
 
@@ -53,11 +54,5 @@ class FavoritesAdaptar(val clickListener: ArtworksListener, val viewModel: Favor
                 return CustomViewHolder(binding)
             }
         }
-
     }
-
-    class ArtworksListener(val clickListener: (artworkApi: ArtworkApi) -> Unit) {
-        fun onClick(artwork: ArtworkApi) = clickListener(artwork)
-    }
-
 }

@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/artworksList"
+            android:id="@+id/favoritesList"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
@@ -22,15 +22,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:spanCount="2" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="koekoek"
-            app:layout_constraintBottom_toBottomOf="@+id/artworksList"
-            app:layout_constraintTop_toTopOf="@+id/artworksList"
-            tools:layout_editor_absoluteX="139dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
