@@ -12,6 +12,9 @@
         <argument
             android:name="ArtistId"
             app:argType="long" />
+        <action
+            android:id="@+id/action_kunstenaar_to_artworkFragment"
+            app:destination="@id/artworkFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -30,10 +33,14 @@
         android:id="@+id/artistListFragment"
         android:name="android.example.artGallery.screens.home_artists.HomeArtistFragment"
         android:label="@string/vertalingArtiesten">
+        <argument
+            android:name="ArtistID"
+             />
         <action
             android:id="@+id/action_artistListFragment_to_kunstenaar"
             app:destination="@id/kunstenaar"
-            app:popUpToInclusive="false" />
+            app:popUpToInclusive="false"
+            />
     </fragment>
     <fragment
         android:id="@+id/homeKunstFragment"

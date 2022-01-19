@@ -10,124 +10,59 @@
             type="android.example.artGallery.screens.kunstenaardetail.KunstenaarViewModel" />
     </data>
 
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".screens.kunstenaardetail.KunstenaarFragment">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="411dp"
-        android:layout_height="148dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/kunstenaar_naam"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginStart="86dp"
-            android:layout_marginEnd="55dp"
-            android:contentDescription="@string/kunstenaar"
-            android:text="@string/leonadro_de_vinci"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/kunstenaarImageView"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.503" />
-
-        <ImageView
-            android:id="@+id/kunstenaarImageView"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/kunstenaar"
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/kunstenaar_naam"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/leonardo" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <ScrollView
-        android:id="@+id/scrollView4"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="558dp"
-        android:layout_marginTop="210dp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp">
+        android:layout_height="match_parent"
+        tools:context=".screens.kunstenaardetail.KunstenaarFragment">
 
-        <LinearLayout
-            android:id="@+id/artworks"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/artworksList"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="28dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintTop_toBottomOf="@+id/kunstenaarImageView"
+                app:spanCount="2"
+                tools:layout_editor_absoluteX="0dp" />
 
             <TextView
-                android:id="@+id/text_artwork1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/roboto_medium"
-                android:gravity="center_horizontal"
-                android:text="@string/the_last_supper"
-                android:textSize="20sp" />
+                android:id="@+id/kunstenaar_naam"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginTop="96dp"
+                android:contentDescription="@string/kunstenaar"
+                android:text="@string/leonadro_de_vinci"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/kunstenaarImageView"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageButton
-                android:id="@+id/artwork1"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:background="#FFFFFF"
-                android:contentDescription="@string/eerste_kunstwerk"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/last_supper" />
+            <ImageView
+                android:id="@+id/kunstenaarImageView"
+                android:layout_width="202dp"
+                android:layout_height="195dp"
+                android:contentDescription="@string/kunstenaar"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/kunstenaar_naam"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.03"
+                app:srcCompat="@drawable/leonardo" />
 
-            <TextView
-                android:id="@+id/text_artwork2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_medium"
-                android:gravity="center_horizontal"
-                android:text="@string/ginevra_de_benci"
-                android:textSize="20sp" />
-
-            <ImageButton
-                android:id="@+id/artwork2"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:background="#FFFFFF"
-                android:contentDescription="@string/tweede_kunstwerk"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/britannica" />
-
-            <TextView
-                android:id="@+id/text_artwork3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_medium"
-                android:gravity="center_horizontal"
-                android:text="@string/mona_lisa"
-                android:textSize="20sp" />
-
-            <ImageButton
-                android:id="@+id/artwork3"
-                android:layout_width="match_parent"
-                android:layout_height="350dp"
-                android:layout_gravity="fill_vertical"
-                android:background="#FFFFFF"
-                android:contentDescription="@string/derde_kunstwerk"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/mona" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        </LinearLayout>
-    </ScrollView>
-
-
-</FrameLayout>
+    </FrameLayout>
 </layout>

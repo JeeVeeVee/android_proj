@@ -51,9 +51,6 @@ class ArtworkImageViewModel(val database: ArtGalleryDAO, application: Applicatio
 
         viewModelScope.launch {
             getArtworksFromAPI()
-            _apiResponse.value!!.artworks.forEach{
-                println(it)
-            }
         }
     }
 
