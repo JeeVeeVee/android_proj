@@ -26,15 +26,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/artworksList"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginTop="28dp"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:layout_constraintTop_toBottomOf="@+id/kunstenaarImageView"
-                app:spanCount="2"
-                tools:layout_editor_absoluteX="0dp" />
+
 
             <TextView
                 android:id="@+id/kunstenaar_naam"
@@ -42,7 +34,6 @@
                 android:layout_height="30dp"
                 android:layout_marginTop="96dp"
                 android:contentDescription="@string/kunstenaar"
-                android:text="@string/leonadro_de_vinci"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/kunstenaarImageView"
@@ -59,7 +50,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.03"
-                app:srcCompat="@drawable/leonardo" />
+                 />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/artworksList"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="28dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/kunstenaarImageView"
+                app:spanCount="2"
+                tools:layout_editor_absoluteX="0dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
